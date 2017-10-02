@@ -5,7 +5,8 @@ CS 319 Project inspired by Pokemon FireRed. This project is a 2d rpg game. This 
 We chose this project because we think that this idea fits well in OOP structure. We will develop this project in Java because we all have
 experience in Java language. IntelliJ IDE will be used as a development platform. Final project will be deployed to .JAR through Maven. 
 
-Pokemon FireRed link: https://www.youtube.com/watch?v=yUS1IcC5CBY
+Pokemon FireRed Download: https://www.loveroms.com/download/gameboy-advance/pokemon-fire-red-version-u/39
+Pokemon FireRed Gameplay: https://www.youtube.com/watch?v=yUS1IcC5CBY
 
 ## Contributors
 * Berat Tuna Karlı
