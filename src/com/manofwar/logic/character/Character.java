@@ -23,8 +23,6 @@ public class Character extends GameObject {
     private CharacterInputComponent inputComponent;
     private CharacterPhysicsComponent physicsComponent;
 
-    private boolean toFire = false;
-
     /**
      * Simply, constructor.
      * @param boundingBox Initial bounding box
