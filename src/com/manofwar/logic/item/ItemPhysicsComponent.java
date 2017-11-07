@@ -30,8 +30,6 @@ public class ItemPhysicsComponent {
         Character character = gameStateManager.getCharacter();
         if (item.isVisible() && character.getBoundingBox().intersects(item.getBoundingBox())) {
             character.setHealth(character.getHealth() + item.getBonusHealth());
-            character.setBluePower(character.getBluePower() + item.getBonusBluePower());
-            character.setRedPower(character.getRedPower() + item.getBonusRedPower());
 
             item.setVisible(false);
         }

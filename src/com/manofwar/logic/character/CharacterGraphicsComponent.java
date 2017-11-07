@@ -26,6 +26,6 @@ public class CharacterGraphicsComponent {
      */
     public void update(GraphicsManager graphicsManager) {
 
-        graphicsManager.draw(graphicsManager.getResource("character.png"), character.getBoundingBox());
+        graphicsManager.draw(graphicsManager.getResource("character_" + character.getVelocity().getDirection().name().toLowerCase() + ".png"), character.getBoundingBox());
     }
 }

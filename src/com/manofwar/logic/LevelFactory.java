@@ -22,6 +22,7 @@ public class LevelFactory {
 
     private List<String> getLines(String path) {
 
+        System.out.println(path + " is loading...");
         BufferedReader txtReader = null;
         try {
             txtReader = new BufferedReader(new FileReader(getClass().getResource(path).getPath()));
@@ -53,7 +54,7 @@ public class LevelFactory {
             String[] splited = blueList.get(i).split("\\s+");
             int a = Integer.parseInt(splited[0]);
             int b = Integer.parseInt(splited[1]);
-            mobsArray[i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.BLUE,10, 0, 100, 100, new Inventory(), new Velocity());
+            mobsArray[i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.BLUE,10,  100, 100, new Inventory(), new Velocity());
         }
 
 
@@ -61,7 +62,7 @@ public class LevelFactory {
             String[] splited = redList.get(i).split("\\s+");
             int a = Integer.parseInt(splited[0]);
             int b = Integer.parseInt(splited[1]);
-            mobsArray[blueList.size() + i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.RED,0, 10, 100, 100, new Inventory(), new Velocity());
+            mobsArray[blueList.size() + i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.RED,0,  100, 100, new Inventory(), new Velocity());
         }
         return mobsArray;
     }
@@ -128,6 +129,6 @@ public class LevelFactory {
         int a = Integer.parseInt(splited[0]);
         int b = Integer.parseInt(splited[1]);
 
-        return new Character(new Rectangle(a, b, 40, 40),10, 10, 100, 100, new Inventory(), new Velocity(0, 0));
+        return new Character(new Rectangle(a, b, 40, 40),30, 100, 100, new Inventory(), new Velocity(0, 0));
     }
 }

@@ -26,4 +26,14 @@ public class Config {
      */
     public static final int TILE_HEIGHT = 50;
 
+    /**
+     * Bullet Speed of each bullet. It is high because it is also multiplied with seconds passed in each game loop iteration like 0.001
+     */
+    public static final int BULLET_SPEED = 4000;
+
+
+    /**
+     * Minimum number of frames that a bullet can be shot.
+     */
+    public static final int BULLET_UPDATE_LIMIT = 5;
 }

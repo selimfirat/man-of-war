@@ -1,6 +1,7 @@
 package com.manofwar.logic;
 
 import com.manofwar.logic.block.Block;
+import com.manofwar.logic.bullet.Bullet;
 import com.manofwar.logic.door.Door;
 import com.manofwar.logic.item.Item;
 import com.manofwar.logic.character.Character;
@@ -35,6 +36,7 @@ public class GameStateManager {
     private List<Block> blocks;
     private List<Item> nonTakenItems;
     private List<Door> doors;
+    private List<Bullet> bullets;
 
     private int levelNum = -1;
 
@@ -62,6 +64,7 @@ public class GameStateManager {
         blocks = new ArrayList<>(Arrays.asList(levelFactory.createBlocks(levelNum)));
         doors = new ArrayList<>(Arrays.asList(levelFactory.createDoors(levelNum)));
         nonTakenItems = new ArrayList<>(Arrays.asList(levelFactory.createNonTakenItems(levelNum)));
+        bullets = new ArrayList<>();
 
         character = levelFactory.createCharacter(levelNum);
         this.levelNum = levelNum;
@@ -97,6 +100,9 @@ public class GameStateManager {
 
         for (Door door : doors)
             door.update(this);
+
+        for (Bullet bullet : bullets)
+            bullet.update(this);
 
         character.update(this);
     }
@@ -179,6 +185,10 @@ public class GameStateManager {
      */
     public double getPassedSeconds() {
         return passedSeconds;
+    }
+
+    public List<Bullet> getBullets() {
+        return bullets;
     }
 
 }

@@ -39,15 +39,17 @@ public class CharacterPhysicsComponent {
         Rectangle tmpBBX = new Rectangle(character.getBoundingBox().x + (int) dX, character.getBoundingBox().y, character.getBoundingBox().width, character.getBoundingBox().height);
         Rectangle tmpBBY = new Rectangle(character.getBoundingBox().x, character.getBoundingBox().y + (int) dY, character.getBoundingBox().width, character.getBoundingBox().height);
 
-        /*
+
         for (Mob mob : gameStateManager.getMobs()){
+            if(!mob.isVisible())
+                continue;
 
             if (mob.getBoundingBox().intersects(tmpBBX))
                 isCollidingX = true;
 
             if (mob.getBoundingBox().intersects(tmpBBY))
                 isCollidingY = true;
-        }*/
+        }
 
         for (Block block : gameStateManager.getBlocks()){
             if (block.getBoundingBox().intersects(tmpBBX))

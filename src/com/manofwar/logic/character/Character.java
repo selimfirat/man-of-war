@@ -1,6 +1,7 @@
 package com.manofwar.logic.character;
 
 import com.manofwar.logic.GameStateManager;
+import com.manofwar.logic.bullet.Bullet;
 import com.manofwar.logic.entities.*;
 
 import java.awt.*;
@@ -11,8 +12,7 @@ import java.awt.*;
 public class Character extends GameObject {
 
 
-    private int bluePower;
-    private int redPower;
+    private int power;
     private int health;
     private int maxHealth;
 
@@ -23,20 +23,20 @@ public class Character extends GameObject {
     private CharacterInputComponent inputComponent;
     private CharacterPhysicsComponent physicsComponent;
 
+    private boolean toFire = false;
+
     /**
      * Simply, constructor.
      * @param boundingBox Initial bounding box
-     * @param bluePower Initial blue power
-     * @param redPower Initial red power
+     * @param power Initial  power
      * @param health Initial health
      * @param maxHealth Initial maxHealth
      * @param inventory Initial inventory containing items
      * @param velocity Initial velocity containing X and Y axises
      */
-    public Character(Rectangle boundingBox, int bluePower, int redPower, int health, int maxHealth, Inventory inventory, Velocity velocity) {
+    public Character(Rectangle boundingBox, int power, int health, int maxHealth, Inventory inventory, Velocity velocity) {
         super(boundingBox);
-        this.bluePower = bluePower;
-        this.redPower = redPower;
+        this.power = power;
         this.health = health;
         this.maxHealth = maxHealth;
         this.inventory = inventory;
@@ -56,43 +56,26 @@ public class Character extends GameObject {
     public void update(GameStateManager gameStateManager) {
 
         graphicsComponent.update(gameStateManager.getGraphicsManager());
-        inputComponent.update(gameStateManager.getInputManager());
+        inputComponent.update(gameStateManager);
         physicsComponent.update(gameStateManager);
 
     }
 
     /**
-     * Returns the blue power
-     * @return the blue power of the character
+     * Returns the power
+     * @return the power of the character
      */
-    public int getBluePower() {
-        return bluePower;
+    public int getPower() {
+        return power;
     }
 
 
     /**
      * Changes the blue power value
-     * @param bluePower Blue power of the character
+     * @param power power of the character
      */
-    public void setBluePower(int bluePower) {
-        this.bluePower = bluePower;
-    }
-
-
-    /**
-     * Returns the red power value
-     * @return the red power of the character
-     */
-    public int getRedPower() {
-        return redPower;
-    }
-
-    /**
-     * Changes the red power value
-     * @param redPower Blue power of the character
-     */
-    public void setRedPower(int redPower) {
-        this.redPower = redPower;
+    public void setPower(int power) {
+        this.power = power;
     }
 
 
@@ -145,5 +128,6 @@ public class Character extends GameObject {
     public Velocity getVelocity() {
         return velocity;
     }
+
 }
 
