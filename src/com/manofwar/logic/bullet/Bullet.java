@@ -8,6 +8,9 @@ import com.manofwar.logic.entities.Velocity;
 
 import java.awt.*;
 
+/**
+ * Bullet is a GameObject that is used by Character and Enemy instances to attack and harm the opponent.
+ */
 public class Bullet extends GameObject {
 
     private Velocity velocity;

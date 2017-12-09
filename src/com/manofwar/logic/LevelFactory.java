@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * LevelFactory class is a helper class using Factory design pattern for GameStateManager. Creates the game objects and returns them to this manager.
+ */
 public class LevelFactory {
 
     private List<String> getLines(String path) {

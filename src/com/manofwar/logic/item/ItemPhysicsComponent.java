@@ -20,7 +20,6 @@ public class ItemPhysicsComponent {
     }
 
 
-
     /**
      * The method that is executed each iteration of game loop.
      * Resolves collisions with character. If it happens, character picks the item and item removed from the game scene.

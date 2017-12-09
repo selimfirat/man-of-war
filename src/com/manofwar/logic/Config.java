@@ -9,7 +9,7 @@ public class Config {
     /**
      * The delay between each iteration of game loop.
      */
-    public static final long DELAY = 5;
+    public static final long UPDATE_DELAY = 5;
 
     /**
      * The velocity of the character. It is high because it is also multiplied with seconds passed in each game loop iteration like 0.001

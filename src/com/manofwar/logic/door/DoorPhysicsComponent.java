@@ -3,6 +3,9 @@ package com.manofwar.logic.door;
 import com.manofwar.logic.GameStateManager;
 import com.manofwar.logic.character.Character;
 
+/**
+ * DoorPhysicsComponent is to check whether the Character is reached to the door.
+ */
 public class DoorPhysicsComponent {
 
     private Door door;

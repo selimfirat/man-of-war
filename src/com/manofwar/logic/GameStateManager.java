@@ -3,6 +3,7 @@ package com.manofwar.logic;
 import com.manofwar.logic.block.Block;
 import com.manofwar.logic.bullet.Bullet;
 import com.manofwar.logic.door.Door;
+import com.manofwar.logic.entities.Difficulty;
 import com.manofwar.logic.item.Item;
 import com.manofwar.logic.character.Character;
 import com.manofwar.logic.mob.Mob;
@@ -39,6 +40,7 @@ public class GameStateManager {
     private List<Bullet> bullets;
 
     private int levelNum = -1;
+    private Difficulty difficulty;
 
     /**
      * Simply, constructor.

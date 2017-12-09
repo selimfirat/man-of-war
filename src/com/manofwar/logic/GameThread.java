@@ -3,7 +3,7 @@ package com.manofwar.logic;
 import com.manofwar.presentation.GamePanel;
 
 /**
- * GameThread class is the responsible of the game loop. Executes update methods of the game objects through gamestatemanager and repaints the GamePanel.
+ * GameThread class is the responsible of the game loop. Executes update methods of the game objects through GameStateManager and repaints the GamePanel.
  */
 public class GameThread extends Thread {
 
@@ -26,7 +26,7 @@ public class GameThread extends Thread {
      */
     @Override
     public void run() {
-        long delay = Config.DELAY;
+        long delay = Config.UPDATE_DELAY;
 
         while (true) {
             gameStateManager.update(delay / 1000.0);
