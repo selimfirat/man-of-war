@@ -6,17 +6,30 @@ import com.manofwar.logic.GameStateManager;
 
 import java.awt.*;
 
+/**
+ * The physics component of the squeezer.
+ * Works in coherence with other game objects' physics components.
+ */
 public class SqueezerPhysicsComponent {
 
     private Squeezer squeezer;
     private double passedSeconds = 0;
     int mlt = 1; // to determine whether going back
 
+    /**
+     * Simply, constructor.
+     * @param squeezer Squeezer to be composited with this component
+     */
     public SqueezerPhysicsComponent(Squeezer squeezer) {
         this.squeezer = squeezer;
         passedSeconds = 0.0;
     }
 
+    /**
+     * The method that is executed each iteration of game loop.
+     * Responsible for squeezing and hurts the character if colliding with it
+     * @param gameStateManager the GameStateManager instance that is in control of the game.
+     */
     public void update(GameStateManager gameStateManager) {
         Rectangle bb = squeezer.getBoundingBox();
         Rectangle obb = squeezer.getOriginalBoundingBox();

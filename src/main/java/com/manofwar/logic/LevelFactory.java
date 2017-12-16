@@ -41,6 +41,11 @@ public class LevelFactory {
         return list;
     }
 
+    /**
+     * The factory method of mobs
+     * @param levelNum current level number to be created
+     * @return the mobs array of the level.
+     */
     public Mob[] createMobs(int levelNum) {
 
         List<String> blueList = getLines("level_" + levelNum + "/mobs_green.txt");
@@ -66,6 +71,11 @@ public class LevelFactory {
         return mobsArray;
     }
 
+    /**
+     * The factory method of blocks
+     * @param levelNum current level number to be created
+     * @return the blocks array of the level.
+     */
     public Block[] createBlocks(int levelNum) {
 
         List<String> list = getLines("level_" + levelNum + "/blocks.txt");
@@ -81,6 +91,11 @@ public class LevelFactory {
         return blocksArray;
     }
 
+    /**
+     * The factory method of items
+     * @param levelNum current level number to be created
+     * @return the items array of the level.
+     */
     public Item[] createNonTakenItems(int levelNum) {
 
         List<String> blueList = getLines("level_" + levelNum + "/blue_potions.txt");
@@ -105,6 +120,11 @@ public class LevelFactory {
         return itemsArray;
     }
 
+    /**
+     * The factory method of doors
+     * @param levelNum current level number to be created
+     * @return the doors array of the level.
+     */
     public Door[] createDoors(int levelNum) {
 
         List<String> list = getLines("level_" + levelNum + "/doors.txt");
@@ -121,6 +141,11 @@ public class LevelFactory {
         return doorsArray;
     }
 
+    /**
+     * The factory method of squeezers
+     * @param levelNum current level number to be created
+     * @return the squeezers array of the level.
+     */
     public Squeezer[] createSqueezers(int levelNum) {
 
         List<String> list = getLines("level_" + levelNum + "/squeezers.txt");
@@ -139,6 +164,11 @@ public class LevelFactory {
         return squeezersArray;
     }
 
+    /**
+     * The factory method of character
+     * @param levelNum current level number for the character to be created at.
+     * @return the created character.
+     */
     public Character createCharacter(int levelNum) {
         List<String> list = getLines("level_" + levelNum + "/spawn_point.txt");
 

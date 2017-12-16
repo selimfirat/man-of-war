@@ -19,9 +19,10 @@ public class ButtonListener {
 	GamePanel gamePanel;
 	InfoPanel infoP;
 	SaveLoad saveloadGame;
-	public ButtonListener() {
-	}
-
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener loadButtonButtonListener(JFrame frame) {
 		ActionListener al1 = new ActionListener()
 		{
@@ -61,6 +62,10 @@ public class ButtonListener {
 		return al1;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener playButtonListener(JFrame frame) {
 		ActionListener al1 = new ActionListener()
 		{
@@ -98,6 +103,10 @@ public class ButtonListener {
 		};
 		return al1;
 	}
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener settingsButtonListener(JFrame frame) {
 		ActionListener al2 = new ActionListener()
 		{
@@ -109,6 +118,10 @@ public class ButtonListener {
 		};
 		return al2;
 	}
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener infoButtonListener(JFrame frame) {
 		ActionListener al2 = new ActionListener()
 		{
@@ -119,6 +132,10 @@ public class ButtonListener {
 		};
 		return al2;
 	}
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener quitButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -128,6 +145,10 @@ public class ButtonListener {
 		};
 		return al3;
 	}
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener turnFromSettingsListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -140,6 +161,10 @@ public class ButtonListener {
 		};
 		return al3;
 	}
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener turnFromInfoListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -153,6 +178,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener turnFromPauseListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -164,6 +193,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener defaultKeysButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -174,6 +207,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener ijklKeysButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -184,6 +221,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener numPadKeysButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -194,6 +235,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener easyKeysButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -204,6 +249,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener normalKeysButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{
@@ -214,6 +263,10 @@ public class ButtonListener {
 		return al3;
 	}
 
+	/**
+	 * @param frame
+	 * @return ButtonListener which performs essential action
+	 */
 	public ActionListener hardKeysButtonListener(JFrame frame) {
 		ActionListener al3 = new ActionListener()
 		{

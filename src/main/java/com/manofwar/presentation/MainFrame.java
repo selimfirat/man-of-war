@@ -13,12 +13,15 @@ public class MainFrame extends JFrame {
 	static JFrame frame;
 	static MainMenuPanel mainMenuP;
 	
+	/**
+	 * Starts game
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		frame = new MainFrame();
 		frame.setFocusable(true);
 		mainMenuP = new MainMenuPanel();
 		mainMenuP.createFrame(frame);
-		frame.setTitle("Man of War");
         MainMenuPanel.createMainPanel(frame);
 	}
 }

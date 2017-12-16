@@ -9,11 +9,18 @@ import com.manofwar.logic.character.Character;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-// Simple AI Component
+
+/**
+ * MobInputComponent includes a simple AI for the mobs.
+ */
 public class MobInputComponent {
 
     private Mob mob;
 
+    /**
+     * Simply, constructor
+     * @param mob the mob to be composited with this component
+     */
     public MobInputComponent(Mob mob) {
         this.mob = mob;
 
@@ -23,6 +30,12 @@ public class MobInputComponent {
 
     private int bulletUpdateCounter = 0;
 
+
+    /**
+     * The method that is executed each iteration of game loop.
+     * Manages the fire AI for the mobs.
+     * @param gameStateManager The Game State Manager instance that is in control.
+     */
     public void update(GameStateManager gameStateManager) {
 
         Character character = gameStateManager.getCharacter();

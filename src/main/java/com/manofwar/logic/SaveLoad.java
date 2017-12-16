@@ -10,10 +10,8 @@ public class SaveLoad {
 	//readLoad returns integer list which include 3 specification
 	// which are levelNo, player health and player attack power
 	//it reads from txt file...
-	GameStateManager gms;
 	
-	public SaveLoad(GameStateManager gms1) {
-		gms = gms1;
+	public SaveLoad() {
 	}
 	public static ArrayList<Integer> readLoad() throws FileNotFoundException {
 		ArrayList<Integer> integers = new ArrayList<Integer>();
@@ -25,7 +23,7 @@ public class SaveLoad {
 		return integers;
 		//returns 3 content arrayList
 	}
-	
+
 	public static int getLevel() throws FileNotFoundException {
 		ArrayList<Integer> integers1 = readLoad();
 		return integers1.get(0);

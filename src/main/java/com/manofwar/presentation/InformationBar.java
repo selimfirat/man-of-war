@@ -1,14 +1,16 @@
 package com.manofwar.presentation;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class InformationBar extends JPanel {
 
 
+    /**
+     * constructor for information bar
+     * creates information bar and label shows information about games move keys and difficulty
+     */
     public InformationBar() {
         this.setFocusable(true);
         this.setLayout(new BorderLayout());

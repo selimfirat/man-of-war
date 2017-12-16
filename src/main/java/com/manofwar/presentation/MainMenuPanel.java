@@ -30,6 +30,9 @@ public class MainMenuPanel extends JFrame {
 	};
 	static ButtonListener bListener = new ButtonListener();
 
+	/**
+	 * constructor for main menu panel
+	 */
 	public MainMenuPanel() {
 		// Code below is copied from oracle docs: https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/nimbus.html
 
@@ -45,10 +48,14 @@ public class MainMenuPanel extends JFrame {
 		}
 
 	}
+	/**
+	 * @param frame
+	 * it specifies frame
+	 */
 	public void createFrame(JFrame frame) {
 		frame.setResizable(false);
-        frame.setSize(800,650);
-        frame.setMinimumSize(new Dimension(800,650));
+        frame.setSize(815,660);
+        frame.setMinimumSize(new Dimension(815,660));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -56,6 +63,10 @@ public class MainMenuPanel extends JFrame {
         frame.setResizable(false);
 	}
 	
+	/**
+	 * @param frame
+	 * it creates main panel
+	 */
 	public static void createMainPanel(JFrame frame) {
 		mainPanel.setLayout(null);
 		mainPanel.setBackground(Color.LIGHT_GRAY);
@@ -91,6 +102,10 @@ public class MainMenuPanel extends JFrame {
 		frame.validate();
 	}
 		
+	/**
+	 * @param frame
+	 * removes main panel from frame
+	 */
 	public static void removeMainPanel(JFrame frame) {
 		frame.remove(mainPanel);
 	}

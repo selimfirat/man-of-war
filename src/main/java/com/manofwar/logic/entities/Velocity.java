@@ -84,11 +84,12 @@ public class Velocity {
         this.yVelocity = yVelocity;
     }
 
+    /**
+     * Gives the direction of the belonging velocity
+     * @return the direction of velocity
+     */
     public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
 }
