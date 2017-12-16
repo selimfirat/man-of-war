@@ -5,6 +5,9 @@ import com.manofwar.logic.entities.*;
 
 import java.awt.*;
 
+/**
+ * Mob class that represents various mobs in game
+ */
 public class Mob extends GameObject {
 
     private int power;
@@ -22,6 +25,17 @@ public class Mob extends GameObject {
     private MobInputComponent inputComponent;
     private MobPhysicsComponent physicsComponent;
 
+
+    /**
+     * Simply, constructor
+     * @param boundingBox Bounding box of the mob
+     * @param type the type of the mob
+     * @param power power of the mob
+     * @param health health of the mob
+     * @param maxHealth maximum (initial) health of the mob
+     * @param itemsToDrop items to drop from the mob
+     * @param velocity velocity of the mob
+     */
     public Mob(Rectangle boundingBox, MobType type, int power, int health, int maxHealth, Inventory itemsToDrop, Velocity velocity) {
         super(boundingBox);
         this.type = type;
@@ -37,6 +51,10 @@ public class Mob extends GameObject {
         this.physicsComponent = new MobPhysicsComponent(this);
     }
 
+    /**
+     * Game loop update method
+     * @param gameStateManager GameStateManager object that is in control.
+     */
     @Override
     public void update(GameStateManager gameStateManager) {
         if (!this.isVisible)
@@ -48,6 +66,10 @@ public class Mob extends GameObject {
 
     }
 
+    /**
+     * This method is used to give damage to the mob
+     * @param amount The amount of the damage
+     */
     public void takeDamage(int amount) {
         this.health -= amount;
 
@@ -55,38 +77,54 @@ public class Mob extends GameObject {
             this.isVisible = false;
     }
 
+    /**
+     * Gives the visibility of the mob
+     * @return the visibility of the mob
+     */
     public boolean isVisible() {
         return isVisible;
     }
 
-    public void setVisible(boolean visible) {
-        isVisible = visible;
-    }
 
+    /**
+     * Returns the maximum (initial) health of the mob.
+     * @return the maximum (initial) health of the mob.
+     */
     public int getMaxHealth() {
         return maxHealth;
     }
 
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
-    }
 
+    /**
+     * Returns the current health of the mob.
+     * @return the current health of the mob.
+     */
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
+    /**
+     * Returns the type of the mob.
+     * @return the type of the mob.
+     */
     public MobType getType() {
         return type;
     }
 
+
+    /**
+     * Gives the velocity of the mob
+     * @return the velocity of the mob
+     */
     public Velocity getVelocity() {
         return velocity;
     }
 
+
+    /**
+     * Returns the power of the mob
+     * @return the power of the mob
+     */
     public int getPower() {
         return power;
     }

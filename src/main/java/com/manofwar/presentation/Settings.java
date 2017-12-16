@@ -7,12 +7,17 @@ public class Settings {
     //74 //73 //76 //75
     //100 //104 //102 //101
     private static Settings instance = new Settings();
+    
+    /**
+     * constructor for settings
+     * default values of settings
+     */
     private Settings(){
-        difficulty = "EASY";
+        difficulty = "easy";
         integers = new ArrayList<Integer>();
         strings = new ArrayList<String>();
         integers.add(37);integers.add(38);integers.add(39);integers.add(40);
-        strings.add("LEFT Key");strings.add("UP Key");strings.add("RIGHT Key");strings.add("DOWN Key");
+        strings.add("leftArrow");strings.add("upArrow");strings.add("rightArrow");strings.add("downArrow");
     }
     private double difficultyMultiplier = 1.0;
     public static Settings getInstance(){
@@ -23,6 +28,11 @@ public class Settings {
     ArrayList<String> strings;
     String difficulty;
 
+    /**
+     * @param i
+     * @return arrayList that stores movement keys
+     * Due to settings changes keys changes 
+     */
     public ArrayList<Integer> changeKeys(int i) {
         if(i == 1) {
             integers = new ArrayList<Integer>();
@@ -34,7 +44,7 @@ public class Settings {
             integers = new ArrayList<Integer>();
             strings = new ArrayList<String>();
             integers.add(37);integers.add(38);integers.add(39);integers.add(40);
-            strings.add("LEFT Key");strings.add("UP Key");strings.add("RIGHT Key");strings.add("DOWN Key");
+            strings.add("leftArrow");strings.add("upArrow");strings.add("rightArrow");strings.add("downArrow");
         }
         else if(i == 2) {
             integers = new ArrayList<Integer>();
@@ -44,32 +54,48 @@ public class Settings {
         }
         return integers;
     }
+    /**
+     * @return key arrayList
+     */
     public ArrayList<Integer> getKeys(){
         return integers;
     }
+    /**
+     * @return keys names arraylist
+     */
     public ArrayList<String> getNames(){
         return strings;
     }
 
+    /**
+     * @param i
+     * it changes the level multiplier
+     */
     public void changeDiffculty(int i){
         if(i == 0) {
-            difficulty = "EASY";
+            difficulty = "Easy";
             difficultyMultiplier = 1.0;
         }
         else if(i == 1) {
-            difficulty = "NORMAL";
-            difficultyMultiplier = 1.50;
+            difficulty = "Normal";
+            difficultyMultiplier = 1.25;
         }
         else if(i == 2) {
-            difficulty = "HARD";
-            difficultyMultiplier = 1.75;
+            difficulty = "Hard";
+            difficultyMultiplier = 1.5;
         }
     }
 
+    /**
+     * @return difficulty name
+     */
     public String getDifficultyName(){
         return difficulty;
     }
 
+    /**
+     * @return difficultyMultiplier
+     */
     public double getDifficultyMultiplier() {
         return difficultyMultiplier;
     }

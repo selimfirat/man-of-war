@@ -16,12 +16,16 @@ public class InfoPanel {
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
-			g.drawImage(MainMenuPanel.graphicsManager.getResource("info.jpg"), 0, 0, null);
+			g.drawImage(MainMenuPanel.graphicsManager.getResource("background_dark.png"), 0, 0, null);
 		}
 	};
 	static ButtonListener bListener = new ButtonListener();
 	static JButton backMenu;
 	
+	/**
+	 * @param frame
+	 * creates information panel
+	 */
 	public static void createInfoPanel(JFrame frame) {
 		infoPanel.setLayout(null);
 		infoPanel.setBackground(Color.black);
@@ -39,6 +43,10 @@ public class InfoPanel {
 		
 	}
 	
+	/**
+	 * @param frame
+	 * removes information screen from frame
+	 */
 	public void removeInfoPanel(JFrame frame) {
 		frame.remove(infoPanel);
 	}

@@ -194,18 +194,25 @@ public class GameStateManager {
         return passedSeconds;
     }
 
+    /**
+     * Gives the list of the bullets in game
+     * @return the list of the bullets in game
+     */
     public List<Bullet> getBullets() {
         return bullets;
     }
 
+    /**
+     * Gives the current level number
+     * @return the current level number
+     */
     public int getLevelNum() {
         return levelNum;
     }
 
-    public void setLevelNum(int levelNum) {
-        this.levelNum = levelNum;
-    }
-
+    /**
+     * It is used to restart the current level for example when character dies.
+     */
     public void restartLevel() {
         initLevel(levelNum);
     }

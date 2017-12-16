@@ -42,7 +42,16 @@ public class Config {
      */
     public static final int MOB_BULLET_UPDATE_LIMIT = 45;
 
+    /**
+     * The speed of the animation. Be careful! It is reverse correlated with the animation per frame.
+     * Not actually a speed!!
+     */
     public static final int ANIMATION_SPEED = 3;
+
+
+    /**
+     * Speed of each mob. It is high because it is also multiplied with seconds passed in each game loop iteration like green.001
+     */
 
     public static final int MOB_SPEED = 1000;
 }

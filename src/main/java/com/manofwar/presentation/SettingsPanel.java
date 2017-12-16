@@ -8,7 +8,9 @@ import java.awt.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 
 public class SettingsPanel {
 
@@ -20,7 +22,8 @@ public class SettingsPanel {
 	JButton EasyButton;
 	JButton NormalButton;
 	JButton HardButton;
-
+	JSlider SoundSlider;
+	JLabel SoundLabel;
 	static JPanel settingPanel = new JPanel() {
 
 		@Override
@@ -31,6 +34,10 @@ public class SettingsPanel {
 	};
 	ButtonListener bListener = new ButtonListener();
 
+	/**
+	 * @param frame
+	 * it creates new SettingPanel
+	 */
 	public void createSettingsPanel(JFrame frame) {
 		settingPanel.setLayout(null);
 		settingPanel.setBackground(Color.black);
@@ -43,15 +50,18 @@ public class SettingsPanel {
 		numPadKeys = new JButton();
 		numPadKeys.setBounds(150,350,200,70);
 		backMenu = new JButton();
-		backMenu.setBounds(300,450,200,70);
+		backMenu.setBounds(300,500,200,70);
 		EasyButton = new JButton();
 		EasyButton.setBounds(450,150,200,70);
 		NormalButton = new JButton();
 		NormalButton.setBounds(450,250,200,70);
 		HardButton = new JButton();
 		HardButton.setBounds(450,350,200,70);
-
-
+		SoundSlider = new JSlider();
+		SoundSlider.setBounds(300,450,200,70);
+		SoundLabel = new JLabel("Sound Change");
+		SoundLabel.setBounds(365, 450, 800, 20);
+		
 		settingPanel.add(defaultKeys);
 		settingPanel.add(ijklKeys);
 		settingPanel.add(numPadKeys);
@@ -59,8 +69,9 @@ public class SettingsPanel {
 		settingPanel.add(EasyButton);
 		settingPanel.add(NormalButton);
 		settingPanel.add(HardButton);
-
-
+		settingPanel.add(SoundSlider);
+		settingPanel.add(SoundLabel);
+		
 		defaultKeys.setText("Default Keys");
 		ijklKeys.setText("i,j,k,l Keys");
 		numPadKeys.setText("numpad Keys");
@@ -68,7 +79,7 @@ public class SettingsPanel {
 		EasyButton.setText("Easy");
 		NormalButton.setText("Normal");
 		HardButton.setText("Hard");
-
+		
 
 		defaultKeys.addActionListener(bListener.defaultKeysButtonListener(frame));
 		ijklKeys.addActionListener(bListener.ijklKeysButtonListener(frame));
@@ -84,6 +95,13 @@ public class SettingsPanel {
 		backMenu.addActionListener(bListener.turnFromSettingsListener(frame));
 	}
 
+	/**
+	 * @param frame
+	 * it removes SettingsPanel from frame
+	 */
+	/**
+	 * @param frame
+	 */
 	public void removeSettingsPanel(JFrame frame) {
 		frame.remove(settingPanel);
 	}

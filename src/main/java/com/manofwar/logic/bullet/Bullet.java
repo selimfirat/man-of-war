@@ -54,6 +54,10 @@ public class Bullet extends GameObject {
         this.physicsComponent = new BulletPhysicsComponent(this);
     }
 
+    /**
+     * Game loop update method for bullet
+     * @param gameStateManager GameStateManager object that is in control.
+     */
     @Override
     public void update(GameStateManager gameStateManager) {
         if (!isVisible())
@@ -63,30 +67,46 @@ public class Bullet extends GameObject {
         physicsComponent.update(gameStateManager);
     }
 
+    /**
+     * Returns velocity of the bullet
+     * @return velocity of the bullet
+     */
     public Velocity getVelocity() {
         return velocity;
     }
 
-    public void setVelocity(Velocity velocity) {
-        this.velocity = velocity;
-    }
 
+    /**
+     * Returns power of the bullet
+     * @return the power of the bullet
+     */
     public int getPower() {
         return power;
     }
 
-    public void setPower(int power) {
-        this.power = power;
-    }
 
+    /**
+     * Returns whether the bullet is visible
+     * @return whether the bullet is visible
+     */
     public boolean isVisible() {
         return isVisible;
     }
 
+
+    /**
+     * Set visibility of the bullet
+     * @param visible visibility of the bullet
+     */
     public void setVisible(boolean visible) {
         isVisible = visible;
     }
 
+
+    /**
+     * Return whether the bullet belongs to the mob
+     * @return whether the bullet belongs to the mob
+     */
     public boolean isMobFire() {
         return isMobFire;
     }

@@ -25,6 +25,9 @@ public class GamePanel extends JPanel{
     private Character ch;
 	private InformationBar infoBar;
 
+	/**
+	 * constructor for game panel
+	 */
 	public GamePanel() {
         this.setFocusable(true);
         this.setLayout(null);
@@ -32,7 +35,7 @@ public class GamePanel extends JPanel{
         inputManager = new InputManager();
         graphicsManager = new GraphicsManager(fileManager);
         gameStateManager = new GameStateManager(fileManager, graphicsManager, inputManager);
-        load = new SaveLoad(gameStateManager);
+        load = new SaveLoad();
 	    gameThread = new GameThread(gameStateManager, this);
 		infoBar = new InformationBar();
 	}
@@ -41,6 +44,10 @@ public class GamePanel extends JPanel{
 		load.writeSave(gameStateManager.getLevelNum(),ch.getHealth(),ch.getPower(),ch.getBoundingBox().x,ch.getBoundingBox().y);
 	}
 
+	/**
+	 * @param frame
+	 * creates game panel and Starts new game
+	 */
 	public void createGamePanel(JFrame frame) {
 
         frame.add(this);
@@ -54,6 +61,11 @@ public class GamePanel extends JPanel{
 		gameThread.start();
 	}
 	
+	/**
+	 * @param frame
+	 * @throws FileNotFoundException
+	 * creates load game panel. It's like new game panel but it gets save information from SaveLoad 
+	 */
 	public void loadGamePanel(JFrame frame) throws FileNotFoundException {
 
         frame.add(this);
@@ -77,13 +89,20 @@ public class GamePanel extends JPanel{
 		gameThread.start();
 	}
 
+    /* (non-Javadoc)
+     * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(graphicsManager.getFullImage(), 0, 0, this);
     }
     
-    public static void removeGamePanel(JFrame frame) {
+    /**
+     * @param frame
+     * removes game panel from frame
+     */
+    public void removeGamePanel(JFrame frame) {
 		frame.getContentPane().removeAll();
 	}
 
