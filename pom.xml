@@ -7,6 +7,7 @@
     <groupId>man-of-war</groupId>
     <artifactId>man-of-war</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
     <build>
         <plugins>
             <plugin>
@@ -17,7 +18,24 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.manofwar.presentation.MainFrame</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
     </build>
 
     <dependencies>
