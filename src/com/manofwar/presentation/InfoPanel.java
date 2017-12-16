@@ -1,18 +1,24 @@
 package com.manofwar.presentation;
 
 import com.manofwar.presentation.ButtonListener;
+import com.manofwar.utilities.FileManager;
+import com.manofwar.utilities.GraphicsManager;
 
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 
-
-/*
- * Inform user about game
- * How to play, how to change settings etc.
- */
 
 public class InfoPanel {
-	static JPanel infoPanel = new JPanel();
+
+
+	static JPanel infoPanel = new JPanel() {
+
+		@Override
+		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(MainMenuPanel.graphicsManager.getResource("info.jpg"), 0, 0, null);
+		}
+	};
 	static ButtonListener bListener = new ButtonListener();
 	static JButton backMenu;
 	
@@ -32,10 +38,7 @@ public class InfoPanel {
 		frame.validate();
 		
 	}
-
-	/**
-	 * removes from frame when its needed
-	 */
+	
 	public void removeInfoPanel(JFrame frame) {
 		frame.remove(infoPanel);
 	}

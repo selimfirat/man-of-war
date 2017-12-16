@@ -17,7 +17,7 @@ public class Bullet extends GameObject {
     private int power;
 
     private boolean isVisible;
-
+    private boolean isMobFire;
 
     private BulletGraphicsComponent graphicsComponent;
     private BulletPhysicsComponent physicsComponent;
@@ -25,20 +25,9 @@ public class Bullet extends GameObject {
     /**
      * Simply constructor.
      * @param boundingBox bounding box of the bullet.
-     * @param velocity velocity of the bullet
      * @param power red power of the bullet
      */
-    public Bullet(Rectangle boundingBox, Velocity velocity, int power, int bluePower) {
-        super(boundingBox);
-        this.velocity = velocity;
-        this.power = power;
-        this.isVisible = true;
-
-        this.graphicsComponent = new BulletGraphicsComponent(this);
-        this.physicsComponent = new BulletPhysicsComponent(this);
-    }
-
-    public Bullet(Rectangle boundingBox, Direction direction, int power) {
+    public Bullet(Rectangle boundingBox, Direction direction, int power, boolean isMobFire) {
         super(boundingBox);
         switch (direction) {
             case LEFT:
@@ -57,6 +46,7 @@ public class Bullet extends GameObject {
                 velocity = new Velocity(0, 0);
         }
 
+        this.isMobFire = isMobFire;
         this.power = power;
         this.isVisible = true;
 
@@ -95,5 +85,9 @@ public class Bullet extends GameObject {
 
     public void setVisible(boolean visible) {
         isVisible = visible;
+    }
+
+    public boolean isMobFire() {
+        return isMobFire;
     }
 }

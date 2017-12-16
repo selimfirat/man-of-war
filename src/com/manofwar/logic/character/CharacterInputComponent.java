@@ -4,7 +4,7 @@ import com.manofwar.logic.Config;
 import com.manofwar.logic.GameStateManager;
 import com.manofwar.logic.bullet.Bullet;
 import com.manofwar.utilities.InputManager;
-
+import com.manofwar.presentation.Settings;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -15,7 +15,6 @@ import java.awt.event.KeyEvent;
 public class CharacterInputComponent {
 
     private Character character;
-
 
     /**
      * Simply, constructor
@@ -40,10 +39,12 @@ public class CharacterInputComponent {
         character.getVelocity().setX(0);
         character.getVelocity().setY(0);
 
-        boolean isUP = inputManager.isPressed(KeyEvent.VK_UP);
-        boolean isDOWN = inputManager.isPressed(KeyEvent.VK_DOWN);
-        boolean isLEFT = inputManager.isPressed(KeyEvent.VK_LEFT);
-        boolean isRIGHT = inputManager.isPressed(KeyEvent.VK_RIGHT);
+
+        boolean isLEFT = inputManager.isPressed(Settings.getInstance().getKeys().get(0));
+        boolean isUP = inputManager.isPressed(Settings.getInstance().getKeys().get(1));
+        boolean isRIGHT = inputManager.isPressed(Settings.getInstance().getKeys().get(2));
+        boolean isDOWN = inputManager.isPressed(Settings.getInstance().getKeys().get(3));
+
 
         double mult = ((isUP || isDOWN) && (isLEFT || isRIGHT)) ? 1/Math.sqrt(2) : 1;
 
@@ -69,7 +70,7 @@ public class CharacterInputComponent {
             bb.x += bb.width * 2;
             bb.y += bb.height * 2;
 
-            Bullet bullet = new Bullet(bb, character.getVelocity().getDirection(), character.getPower());
+            Bullet bullet = new Bullet(bb, character.getVelocity().getDirection(), character.getPower(), false);
             gameStateManager.getBullets().add(bullet);
             bulletUpdateCounter = Config.BULLET_UPDATE_LIMIT;
         }

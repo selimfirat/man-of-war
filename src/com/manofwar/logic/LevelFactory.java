@@ -9,6 +9,8 @@ import com.manofwar.logic.entities.Inventory;
 import com.manofwar.logic.entities.Velocity;
 import com.manofwar.logic.mob.Mob;
 import com.manofwar.logic.mob.MobType;
+import com.manofwar.logic.squeezer.Squeezer;
+import com.manofwar.presentation.Settings;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -48,8 +50,8 @@ public class LevelFactory {
 
     public Mob[] createMobs(int levelNum) {
 
-        List<String> blueList = getLines("../../../level_" + levelNum + "/blue_mobs.txt");
-        List<String> redList = getLines("../../../level_" + levelNum + "/red_mobs.txt");
+        List<String> blueList = getLines("../../../level_" + levelNum + "/mobs_green.txt");
+        List<String> redList = getLines("../../../level_" + levelNum + "/bosses_brown.txt");
 
 
         Mob[] mobsArray = new Mob[redList.size() + blueList.size()];
@@ -57,7 +59,7 @@ public class LevelFactory {
             String[] splited = blueList.get(i).split("\\s+");
             int a = Integer.parseInt(splited[0]);
             int b = Integer.parseInt(splited[1]);
-            mobsArray[i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.BLUE,10,  100, 100, new Inventory(), new Velocity());
+            mobsArray[i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.MOB_GREEN,3,  100, 100, new Inventory(), new Velocity());
         }
 
 
@@ -65,7 +67,8 @@ public class LevelFactory {
             String[] splited = redList.get(i).split("\\s+");
             int a = Integer.parseInt(splited[0]);
             int b = Integer.parseInt(splited[1]);
-            mobsArray[blueList.size() + i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.RED,0,  100, 100, new Inventory(), new Velocity());
+            int maxHealth = (int) ( 100 * Settings.getInstance().getDifficultyMultiplier());
+            mobsArray[blueList.size() + i] = new Mob(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), MobType.BOSS_BROWN,6,  maxHealth, maxHealth, new Inventory(), new Velocity());
         }
         return mobsArray;
     }
@@ -123,6 +126,24 @@ public class LevelFactory {
         }
 
         return doorsArray;
+    }
+
+    public Squeezer[] createSqueezers(int levelNum) {
+
+        List<String> list = getLines("../../../level_" + levelNum + "/squeezers.txt");
+
+
+        Squeezer[] squeezersArray = new Squeezer[list.size()];
+
+        for(int i = 0; i<list.size(); i++) {
+            String[] splited = list.get(i).split("\\s+");
+            int a = Integer.parseInt(splited[0]);
+            int b = Integer.parseInt(splited[1]);
+            String c = splited[2];
+            squeezersArray[i] = new Squeezer(new Rectangle(a, b, Config.TILE_WIDTH, Config.TILE_HEIGHT), Direction.valueOf(c));
+        }
+
+        return squeezersArray;
     }
 
     public Character createCharacter(int levelNum) {

@@ -1,6 +1,6 @@
 package com.manofwar.logic.mob;
 
 public enum MobType {
-    RED,
-    BLUE
+    MOB_GREEN,
+    BOSS_BROWN
 }

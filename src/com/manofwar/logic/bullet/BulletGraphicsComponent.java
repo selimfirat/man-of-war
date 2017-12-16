@@ -25,6 +25,6 @@ public class BulletGraphicsComponent {
      */
     public void update(GraphicsManager graphicsManager) {
 
-        graphicsManager.draw(graphicsManager.getResource("bullet.png"), bullet.getBoundingBox());
+        graphicsManager.draw(graphicsManager.getResource("bullet_" + (bullet.isMobFire() ? "mob" : "character") + ".png"), bullet.getBoundingBox());
     }
 }

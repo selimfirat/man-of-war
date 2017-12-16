@@ -57,6 +57,9 @@ public class Character extends GameObject {
         inputComponent.update(gameStateManager);
         physicsComponent.update(gameStateManager);
 
+
+        if (health <= 0)
+            gameStateManager.restartLevel();
     }
 
     /**

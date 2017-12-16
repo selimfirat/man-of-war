@@ -17,7 +17,7 @@ public class Velocity {
      * @param yVelocity y component of velocity
      */
     public Velocity(double xVelocity, double yVelocity) {
-        this.direction = Direction.UP;
+        this.direction = Direction.LEFT;
         setX(xVelocity);
         setY(yVelocity);
     }
@@ -34,12 +34,12 @@ public class Velocity {
 
 
     /**
-     * A constructor that initiates x and y components of the velocity to 0.0
+     * A constructor that initiates x and y components of the velocity to green.green
      */
     public Velocity() {
         this.xVelocity = 0.0;
         this.yVelocity = 0.0;
-        this.direction = Direction.UP;
+        this.direction = Direction.LEFT;
     }
 
     /**
