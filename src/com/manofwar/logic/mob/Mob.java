@@ -19,6 +19,8 @@ public class Mob extends GameObject {
     private MobType type;
 
     private MobGraphicsComponent graphicsComponent;
+    private MobInputComponent inputComponent;
+    private MobPhysicsComponent physicsComponent;
 
     public Mob(Rectangle boundingBox, MobType type, int power, int health, int maxHealth, Inventory itemsToDrop, Velocity velocity) {
         super(boundingBox);
@@ -31,6 +33,8 @@ public class Mob extends GameObject {
         this.isVisible = true;
 
         this.graphicsComponent = new MobGraphicsComponent(this);
+        this.inputComponent = new MobInputComponent(this);
+        this.physicsComponent = new MobPhysicsComponent(this);
     }
 
     @Override
@@ -39,6 +43,9 @@ public class Mob extends GameObject {
             return;
 
         graphicsComponent.update(gameStateManager.getGraphicsManager());
+        inputComponent.update(gameStateManager);
+        physicsComponent.update(gameStateManager);
+
     }
 
     public void takeDamage(int amount) {
@@ -54,5 +61,33 @@ public class Mob extends GameObject {
 
     public void setVisible(boolean visible) {
         isVisible = visible;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public MobType getType() {
+        return type;
+    }
+
+    public Velocity getVelocity() {
+        return velocity;
+    }
+
+    public int getPower() {
+        return power;
     }
 }

@@ -35,16 +35,24 @@ public class BulletPhysicsComponent {
         bullet.getBoundingBox().x += dX;
         bullet.getBoundingBox().y += dY;
 
+        if (!bullet.isMobFire())
+            for (Mob mob : gameStateManager.getMobs()){
 
-        for (Mob mob : gameStateManager.getMobs()){
+                if (mob.isVisible() && mob.getBoundingBox().intersects(bb)) {
 
-            if (mob.isVisible() && mob.getBoundingBox().intersects(bb)) {
+                    mob.takeDamage(bullet.getPower());
+                    bullet.setVisible(false);
+                    return;
+                }
+            }
+        else
+            if (gameStateManager.getCharacter().getBoundingBox().intersects(bb)) {
 
-                mob.takeDamage(bullet.getPower());
+                gameStateManager.getCharacter().setHealth(gameStateManager.getCharacter().getHealth() - bullet.getPower());
                 bullet.setVisible(false);
                 return;
             }
-        }
+
 
 
         for (Block block : gameStateManager.getBlocks()){

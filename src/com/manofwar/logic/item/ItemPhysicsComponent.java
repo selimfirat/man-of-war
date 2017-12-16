@@ -28,7 +28,7 @@ public class ItemPhysicsComponent {
     public void update(GameStateManager gameStateManager) {
         Character character = gameStateManager.getCharacter();
         if (item.isVisible() && character.getBoundingBox().intersects(item.getBoundingBox())) {
-            character.setHealth(character.getHealth() + item.getBonusHealth());
+            character.setHealth(Math.min(character.getMaxHealth(), character.getHealth() + item.getBonusHealth()));
 
             item.setVisible(false);
         }

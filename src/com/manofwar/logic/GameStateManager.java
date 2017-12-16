@@ -7,6 +7,7 @@ import com.manofwar.logic.entities.Difficulty;
 import com.manofwar.logic.item.Item;
 import com.manofwar.logic.character.Character;
 import com.manofwar.logic.mob.Mob;
+import com.manofwar.logic.squeezer.Squeezer;
 import com.manofwar.utilities.FileManager;
 import com.manofwar.utilities.GraphicsManager;
 import com.manofwar.utilities.InputManager;
@@ -38,9 +39,9 @@ public class GameStateManager {
     private List<Item> nonTakenItems;
     private List<Door> doors;
     private List<Bullet> bullets;
+    private List<Squeezer> squeezers;
 
     private int levelNum = -1;
-    private Difficulty difficulty;
 
     /**
      * Simply, constructor.
@@ -66,6 +67,7 @@ public class GameStateManager {
         blocks = new ArrayList<>(Arrays.asList(levelFactory.createBlocks(levelNum)));
         doors = new ArrayList<>(Arrays.asList(levelFactory.createDoors(levelNum)));
         nonTakenItems = new ArrayList<>(Arrays.asList(levelFactory.createNonTakenItems(levelNum)));
+        squeezers = new ArrayList<>(Arrays.asList(levelFactory.createSqueezers(levelNum)));
         bullets = new ArrayList<>();
 
         character = levelFactory.createCharacter(levelNum);
@@ -75,8 +77,8 @@ public class GameStateManager {
     /**
      * Starts the game with level 1
      */
-    public void startGame() {
-        initLevel(1);
+    public void startGame(int level) {
+        initLevel(level);
     }
 
     /**
@@ -105,6 +107,9 @@ public class GameStateManager {
 
         for (Bullet bullet : bullets)
             bullet.update(this);
+
+        for (Squeezer squeezer: squeezers)
+            squeezer.update(this);
 
         character.update(this);
     }
@@ -193,4 +198,15 @@ public class GameStateManager {
         return bullets;
     }
 
+    public int getLevelNum() {
+        return levelNum;
+    }
+
+    public void setLevelNum(int levelNum) {
+        this.levelNum = levelNum;
+    }
+
+    public void restartLevel() {
+        initLevel(levelNum);
+    }
 }
